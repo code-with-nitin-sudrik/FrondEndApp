@@ -17,7 +17,7 @@ export default function User() {
 
 
   useEffect(() => {
-    fetch("http://54.226.164.87/getAllUser")
+    fetch("http://3.80.137.20/getAllUser")
       .then(response => response.json())
       .then(data => setUserData(data))
       .catch(error => console.log("Error fetching data:", error));
@@ -25,7 +25,7 @@ export default function User() {
 
   const handleViewUser = async (userId) => {
     try {
-      const response = await fetch('http://54.226.164.87/getUserById/' + userId)
+      const response = await fetch('http://3.80.137.20/getUserById/' + userId)
       const data = await response.json()
       selectedUser(data)
     } catch (error) {
@@ -65,7 +65,7 @@ export default function User() {
   const handleDeleteUser = async (userId) => {
     try {
       console.log(`Deleting user with ID: ${userId}`);
-      const response = await fetch(`http://54.226.164.87/deleteUserById/${userId}`, {
+      const response = await fetch(`http://3.80.137.20/deleteUserById/${userId}`, {
         method: 'DELETE',
       });
 
@@ -73,7 +73,7 @@ export default function User() {
 
       if (response.ok) {
         console.log('User deleted successfully!');
-        const updatedResponse = await fetch("http://54.226.164.87/getAllUser");
+        const updatedResponse = await fetch("http://3.80.137.20/getAllUser");
         const updatedData = await updatedResponse.json();
         setUserData(updatedData);
       } else {
@@ -101,11 +101,11 @@ export default function User() {
   const handleSubmit = async () => {
     console.log('FormData:', formData);
     try {
-      let apiUrl = 'http://54.226.164.87/saveUser';
+      let apiUrl = 'http://3.80.137.20/saveUser';
       let methods = 'POST'
 
       if (updateUser) {
-        apiUrl = `http://54.226.164.87/updateUser/${updateUser.id}`;
+        apiUrl = `http://3.80.137.20/updateUser/${updateUser.id}`;
         methods = 'PUT'
       }
 
@@ -119,7 +119,7 @@ export default function User() {
 
       if (response.ok) {
         console.log('User data saved successfully!');
-        const updatedResponse = await fetch("http://54.226.164.87/getAllUser");
+        const updatedResponse = await fetch("http://3.80.137.20/getAllUser");
         const updatedData = await updatedResponse.json();
         setUserData(updatedData);
       } else {
