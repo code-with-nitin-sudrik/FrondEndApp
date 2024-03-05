@@ -9,7 +9,7 @@ export default function Home() {
         <button onClick={()=>{
           router.push("/user")
         }}>
-          User Form Click
+          User Form 
         </button>
     </div>
   )
