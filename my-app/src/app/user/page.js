@@ -12,6 +12,7 @@ export default function User() {
     password: '',
     isActive: false,
     name: '',
+    lastName:'',
   });
   const [updateUser, setUpdateUser] = useState(null);
 
@@ -50,6 +51,7 @@ export default function User() {
       password: '',
       isActive: false,
       name: '',
+      lastName:'',
     });
 
     setUpdateUser(null);
@@ -92,6 +94,7 @@ export default function User() {
       password: user.password,
       isActive: user.is_active,
       name: user.name,
+      lastName:user.lastName,
     });
     setShowUserForm(true);
   };
@@ -148,6 +151,7 @@ export default function User() {
           <tr>
             <th style={{ width: '10%', border: '1px solid black' }}>ID</th>
             <th style={{ width: '30%', border: '1px solid black' }}>Name</th>
+            <th style={{ width: '30%', border: '1px solid black' }}>lastName</th>
             <th style={{ width: '30%', border: '1px solid black' }}>Email</th>
             <th style={{ width: '20%', border: '1px solid black' }}>Status</th>
             <th style={{ width: '20%', border: '1px solid black' }}>Action</th>
@@ -158,6 +162,7 @@ export default function User() {
             <tr key={user.id}>
               <td style={{ width: '10%', border: '1px solid black' }}>{user.id}</td>
               <td style={{ width: '30%', border: '1px solid black' }}>{user.name}</td>
+              <td style={{ width: '30%', border: '1px solid black' }}>{user.lastName}</td>
               <td style={{ width: '30%', border: '1px solid black' }}>{user.email}</td>
               <td style={{ width: '40%', border: '1px solid black' }}>{user.is_active.toString()}</td>
               <td style={{ width: '100%', display: 'flex', justifyContent: 'space-around' }}>
@@ -184,6 +189,7 @@ export default function User() {
           <h2>User Details</h2>
           <p>ID: {selectUser.id}</p>
           <p>Name: {selectUser.name}</p>
+          <p>lastName: {selectUser.lastName}</p>
           <p>Email: {selectUser.email}</p>
           <p>Status: {selectUser.is_active?.toString()}</p>
           <button onClick={handleCloseCard}>Close</button>
@@ -196,6 +202,9 @@ export default function User() {
           {/* Input fields for the user form */}
           <label>Name:</label>
           <input type="text" name="name" value={formData.name} onChange={handleChange} style={{ width: '100%', marginBottom: '10px', padding: '8px', borderRadius: '4px' }} />
+        
+          <label>lastName:</label>
+          <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} style={{ width: '100%', marginBottom: '10px', padding: '8px', borderRadius: '4px' }} />
 
           <label>Email:</label>
           <input type="text" name="email" value={formData.email} onChange={handleChange} style={{ width: '100%', marginBottom: '10px', padding: '8px', borderRadius: '4px' }} />
